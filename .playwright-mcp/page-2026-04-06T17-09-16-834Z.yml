@@ -1,0 +1,184 @@
+- generic [ref=e3]:
+  - navigation [ref=e4]:
+    - generic [ref=e5]:
+      - link "π Harness" [ref=e6] [cursor=pointer]:
+        - /url: /
+        - generic [ref=e7]: π
+        - generic [ref=e8]: Harness
+      - generic [ref=e9]:
+        - link "Home" [ref=e10] [cursor=pointer]:
+          - /url: /
+        - link "Pillars" [ref=e11] [cursor=pointer]:
+          - /url: /pillars
+        - link "Skills" [ref=e12] [cursor=pointer]:
+          - /url: /skills
+        - link "API" [ref=e13] [cursor=pointer]:
+          - /url: /api
+        - link "GitHub" [ref=e14] [cursor=pointer]:
+          - /url: https://github.com
+  - generic [ref=e15]:
+    - generic [ref=e16]:
+      - generic [ref=e17]: Framework Foundation
+      - heading "The 7 Pillars" [level=1] [ref=e18]
+      - paragraph [ref=e19]: Every aspect of pi configuration maps to one of seven foundational pillars. Together they form a comprehensive harness.
+    - generic [ref=e20]:
+      - generic [ref=e21]:
+        - generic [ref=e22]: "7"
+        - generic [ref=e23]: Pillars
+      - generic [ref=e24]:
+        - generic [ref=e25]: "21"
+        - generic [ref=e26]: Max Score
+      - generic [ref=e27]:
+        - generic [ref=e28]: "13"
+        - generic [ref=e29]: Atomic Skills
+    - generic [ref=e30]:
+      - generic [ref=e32]:
+        - generic [ref=e33]: "1"
+        - generic [ref=e34]:
+          - heading "Skill Composition" [level=2] [ref=e35]
+          - text: → pi-skills
+      - paragraph [ref=e36]: "\"What should pi be able to do?\""
+      - paragraph [ref=e37]: What atomic skills and composed workflows the project needs. Skills capture complex workflows so pi can execute them reliably without re-explanation.
+      - heading "What Gets Scored" [level=3] [ref=e38]
+      - list [ref=e39]:
+        - listitem [ref=e40]:
+          - generic [ref=e41]: ✓
+          - text: Project-specific skills or commands exist
+        - listitem [ref=e42]:
+          - generic [ref=e43]: ✓
+          - text: Skills have clear triggers and bounded scope
+        - listitem [ref=e44]:
+          - generic [ref=e45]: ✓
+          - text: Skill composition chains atomic skills together
+    - generic [ref=e46]:
+      - generic [ref=e48]:
+        - generic [ref=e49]: "2"
+        - generic [ref=e50]:
+          - heading "Context Engineering" [level=2] [ref=e51]
+          - text: → pi-context, pi-scaffold
+      - paragraph [ref=e52]: "\"What does pi need to know?\""
+      - paragraph [ref=e53]: What information pi loads and when. Context budget analysis, prompt organization, and progressive disclosure design.
+      - heading "Context Layers" [level=3] [ref=e54]
+      - list [ref=e55]:
+        - listitem [ref=e56]:
+          - generic [ref=e57]: ✓
+          - text: Always-loaded prompts (project.md, style.md)
+        - listitem [ref=e58]:
+          - generic [ref=e59]: ✓
+          - text: On-demand prompts (deploy.md, migrate.md)
+        - listitem [ref=e60]:
+          - generic [ref=e61]: ✓
+          - text: Discovered at runtime (file contents, git history)
+        - listitem [ref=e62]:
+          - generic [ref=e63]: ✓
+          - text: Persistent memory (user, feedback, project)
+    - generic [ref=e64]:
+      - generic [ref=e66]:
+        - generic [ref=e67]: "3"
+        - generic [ref=e68]:
+          - heading "Orchestration & Routing" [level=2] [ref=e69]
+          - text: → pi-routing
+      - paragraph [ref=e70]: "\"How should work be distributed?\""
+      - paragraph [ref=e71]: How tasks route to specialist agents. Parallel vs serialize decisions, subagent delegation patterns, and build-loop workflows.
+      - heading "Decision Matrix" [level=3] [ref=e72]
+      - list [ref=e73]:
+        - listitem [ref=e74]:
+          - generic [ref=e75]: ✓
+          - text: Subagent for independent, expensive tasks
+        - listitem [ref=e76]:
+          - generic [ref=e77]: ✓
+          - text: Inline for trivial tasks or tight iteration
+        - listitem [ref=e78]:
+          - generic [ref=e79]: ✓
+          - text: Parallel for independent research queries
+        - listitem [ref=e80]:
+          - generic [ref=e81]: ✓
+          - text: Serialize for state-changing sequences
+    - generic [ref=e82]:
+      - generic [ref=e84]:
+        - generic [ref=e85]: "4"
+        - generic [ref=e86]:
+          - heading "Persistence & State" [level=2] [ref=e87]
+          - text: → pi-memory
+      - paragraph [ref=e88]: "\"What should pi remember?\""
+      - paragraph [ref=e89]: Cross-session memory and knowledge. What persists, what doesn't, and how memories are organized and maintained.
+      - heading "Memory Types" [level=3] [ref=e90]
+      - list [ref=e91]:
+        - listitem [ref=e92]:
+          - generic [ref=e93]: ✓
+          - text: User - role, preferences, expertise level
+        - listitem [ref=e94]:
+          - generic [ref=e95]: ✓
+          - text: Feedback - corrections AND confirmations
+        - listitem [ref=e96]:
+          - generic [ref=e97]: ✓
+          - text: Project - ongoing work, decisions, deadlines
+        - listitem [ref=e98]:
+          - generic [ref=e99]: ✓
+          - text: Reference - external systems, URLs
+    - generic [ref=e100]:
+      - generic [ref=e102]:
+        - generic [ref=e103]: "5"
+        - generic [ref=e104]:
+          - heading "Quality Gates" [level=2] [ref=e105]
+          - text: → pi-gates, pi-hooks
+      - paragraph [ref=e106]: "\"How do we catch mistakes early?\""
+      - paragraph [ref=e107]: Automated validation and feedback loops. Post-edit checks, pre-commit gates, and conversation-end drift detection.
+      - heading "Gate Layers" [level=3] [ref=e108]
+      - list [ref=e109]:
+        - listitem [ref=e110]:
+          - generic [ref=e111]: ✓
+          - text: "Post-edit: Format, lint, parse validation"
+        - listitem [ref=e112]:
+          - generic [ref=e113]: ✓
+          - text: "Pre-commit: Changed-file checks (<10s)"
+        - listitem [ref=e114]:
+          - generic [ref=e115]: ✓
+          - text: "Pre-push: Full test suite (<2min)"
+        - listitem [ref=e116]:
+          - generic [ref=e117]: ✓
+          - text: "Conversation-end: Harness health check"
+    - generic [ref=e118]:
+      - generic [ref=e120]:
+        - generic [ref=e121]: "6"
+        - generic [ref=e122]:
+          - heading "Permissions & Safety" [level=2] [ref=e123]
+          - text: → pi-permissions
+      - paragraph [ref=e124]: "\"What can pi do without asking?\""
+      - paragraph [ref=e125]: "Permission boundaries: auto-allow safe operations, gate dangerous ones. Balance flow with guardrails."
+      - heading "Blast Radius Principle" [level=3] [ref=e126]
+      - list [ref=e127]:
+        - listitem [ref=e128]:
+          - generic [ref=e129]: ✓
+          - text: Local + reversible = auto-allow (read, format, test)
+        - listitem [ref=e130]:
+          - generic [ref=e131]: ✓
+          - text: Local + hard-to-reverse = prompt (delete, reset)
+        - listitem [ref=e132]:
+          - generic [ref=e133]: ✓
+          - text: Shared state = always prompt (push, deploy)
+        - listitem [ref=e134]:
+          - generic [ref=e135]: ✓
+          - text: External systems = always prompt (API calls)
+    - generic [ref=e136]:
+      - generic [ref=e138]:
+        - generic [ref=e139]: "7"
+        - generic [ref=e140]:
+          - heading "Ergonomics & Trust" [level=2] [ref=e141]
+          - text: → pi-ergonomics
+      - paragraph [ref=e142]: "\"How should pi communicate?\""
+      - paragraph [ref=e143]: Interaction style and trust calibration. Verbosity, autonomy level, output format, and feedback capture.
+      - heading "Trust Levels" [level=3] [ref=e144]
+      - list [ref=e145]:
+        - listitem [ref=e146]:
+          - generic [ref=e147]: ✓
+          - text: "Level 1: New user - confirm everything, verbose"
+        - listitem [ref=e148]:
+          - generic [ref=e149]: ✓
+          - text: "Level 2: Established - routine auto, confirm destructive"
+        - listitem [ref=e150]:
+          - generic [ref=e151]: ✓
+          - text: "Level 3: Power user - autonomous, terse"
+    - contentinfo [ref=e152]:
+      - link "← Back to Home" [ref=e153] [cursor=pointer]:
+        - /url: /

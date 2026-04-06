@@ -1,0 +1,142 @@
+- generic [ref=e3]:
+  - navigation [ref=e4]:
+    - generic [ref=e5]:
+      - link "π Harness" [ref=e6] [cursor=pointer]:
+        - /url: /
+        - generic [ref=e7]: π
+        - generic [ref=e8]: Harness
+      - generic [ref=e9]:
+        - link "Home" [ref=e10] [cursor=pointer]:
+          - /url: /
+        - link "Pillars" [ref=e11] [cursor=pointer]:
+          - /url: /pillars
+        - link "Skills" [ref=e12] [cursor=pointer]:
+          - /url: /skills
+        - link "API" [ref=e13] [cursor=pointer]:
+          - /url: /api
+        - link "GitHub" [ref=e14] [cursor=pointer]:
+          - /url: https://github.com
+  - generic [ref=e15]:
+    - generic [ref=e16]:
+      - generic [ref=e17]: Extension Modules
+      - heading "Skills" [level=1] [ref=e18]
+      - paragraph [ref=e19]: Composable skill modules that extend pi with specialized capabilities.
+    - generic [ref=e20]:
+      - heading "Master Skills" [level=2] [ref=e21]
+      - paragraph [ref=e22]: Core routing and orchestration skills that coordinate other skills.
+      - generic [ref=e23]:
+        - generic [ref=e24]:
+          - generic [ref=e25]: Master
+          - heading "pi-engineer" [level=3] [ref=e26]
+          - paragraph [ref=e27]: Master router that dispatches to the right specialist skill based on your request.
+          - code [ref=e28]: /skill:pi-engineer
+          - generic [ref=e29]:
+            - strong [ref=e30]: "Triggers:"
+            - text: "\"set up pi\", \"improve my harness\", \"audit my setup\""
+        - generic [ref=e31]:
+          - generic [ref=e32]: Master
+          - heading "pi-init" [level=3] [ref=e33]
+          - paragraph [ref=e34]: Bootstrap a complete pi harness from scratch. Orchestrates scaffold, permissions, memory, and hooks.
+          - code [ref=e35]: /skill:pi-init
+          - generic [ref=e36]:
+            - strong [ref=e37]: "Triggers:"
+            - text: "\"initialize harness\", \"bootstrap this project\""
+        - generic [ref=e38]:
+          - generic [ref=e39]: Master
+          - heading "pi-loop" [level=3] [ref=e40]
+          - paragraph [ref=e41]: "Continuous improvement cycle: audit, identify weakest pillar, improve, validate, repeat."
+          - code [ref=e42]: /skill:pi-loop
+          - generic [ref=e43]:
+            - strong [ref=e44]: "Triggers:"
+            - text: "\"improve my harness\", \"keep improving\""
+        - generic [ref=e45]:
+          - generic [ref=e46]: Master
+          - heading "pi-audit" [level=3] [ref=e47]
+          - paragraph [ref=e48]: Evaluate harness maturity across all 7 pillars. Scores 0-21 with detailed recommendations.
+          - code [ref=e49]: /skill:pi-audit
+          - generic [ref=e50]:
+            - strong [ref=e51]: "Triggers:"
+            - text: "\"audit my harness\", \"check my setup\""
+    - generic [ref=e52]:
+      - heading "Atomic Skills" [level=2] [ref=e53]
+      - paragraph [ref=e54]: Single-purpose skills that do one thing well.
+      - generic [ref=e55]:
+        - generic [ref=e56]:
+          - generic [ref=e57]: Context
+          - heading "pi-scaffold" [level=3] [ref=e58]
+          - paragraph [ref=e59]: Generate project-tailored prompts in .pi/prompts/ and setup harness structure.
+          - code [ref=e60]: /skill:pi-scaffold
+        - generic [ref=e61]:
+          - generic [ref=e62]: Context
+          - heading "pi-context" [level=3] [ref=e63]
+          - paragraph [ref=e64]: Optimize what pi loads and when. Design context layers for maximum efficiency.
+          - code [ref=e65]: /skill:pi-context
+        - generic [ref=e66]:
+          - generic [ref=e67]: Persistence
+          - heading "pi-memory" [level=3] [ref=e68]
+          - paragraph [ref=e69]: Design and maintain cross-session memory. User, feedback, project, and reference memories.
+          - code [ref=e70]: /skill:pi-memory
+        - generic [ref=e71]:
+          - generic [ref=e72]: Safety
+          - heading "pi-permissions" [level=3] [ref=e73]
+          - paragraph [ref=e74]: Configure permission boundaries. Auto-allow safe ops, gate dangerous ones.
+          - code [ref=e75]: /skill:pi-permissions
+        - generic [ref=e76]:
+          - generic [ref=e77]: Quality
+          - heading "pi-hooks" [level=3] [ref=e78]
+          - paragraph [ref=e79]: "Implement automated behaviors: format-on-save, lint-on-edit, secret scanning."
+          - code [ref=e80]: /skill:pi-hooks
+        - generic [ref=e81]:
+          - generic [ref=e82]: Quality
+          - heading "pi-gates" [level=3] [ref=e83]
+          - paragraph [ref=e84]: Design quality gates and feedback loops. Post-edit, pre-commit, pre-push validation.
+          - code [ref=e85]: /skill:pi-gates
+        - generic [ref=e86]:
+          - generic [ref=e87]: Composition
+          - heading "pi-skills" [level=3] [ref=e88]
+          - paragraph [ref=e89]: Analyze workflows and decompose into skill system. Identify gaps and overlaps.
+          - code [ref=e90]: /skill:pi-skills
+        - generic [ref=e91]:
+          - generic [ref=e92]: Orchestration
+          - heading "pi-routing" [level=3] [ref=e93]
+          - paragraph [ref=e94]: Design agent orchestration strategies. Parallel vs serialize, subagent delegation.
+          - code [ref=e95]: /skill:pi-routing
+        - generic [ref=e96]:
+          - generic [ref=e97]: Ergonomics
+          - heading "pi-ergonomics" [level=3] [ref=e98]
+          - paragraph [ref=e99]: "Tune interaction style: verbosity, trust level, output format, feedback capture."
+          - code [ref=e100]: /skill:pi-ergonomics
+    - generic [ref=e101]:
+      - heading "Using Skills" [level=2] [ref=e102]
+      - generic [ref=e103]:
+        - generic [ref=e104]: Invoking Skills
+        - code [ref=e107]: // Direct skill invocation/skill:pi-audit
+      - generic [ref=e108]:
+        - generic [ref=e109]: Skill Composition
+        - code [ref=e112]: // pi-init orchestrates multiple skills:pi-init = pi-scaffold + pi-permissions + pi-memory + pi-hooks
+    - generic [ref=e113]:
+      - heading "MCP Extensions" [level=2] [ref=e114]
+      - paragraph [ref=e115]: Pi supports MCP (Model Context Protocol) via extensions. Add MCP servers to extend pi with browser automation, file system access, and more.
+      - generic [ref=e116]:
+        - generic [ref=e117]:
+          - generic [ref=e118]: MCP
+          - heading "Playwright MCP" [level=3] [ref=e119]
+          - paragraph [ref=e120]: Browser automation via Playwright MCP. Navigate pages, extract content, fill forms, take screenshots.
+          - code [ref=e121]: .pi/extensions/playwright-mcp.ts
+          - generic [ref=e122]:
+            - strong [ref=e123]: "Tools:"
+            - text: browser_navigate, browser_screenshot, browser_click, browser_fill, browser_evaluate
+        - generic [ref=e124]:
+          - generic [ref=e125]: MCP
+          - heading "Custom MCP" [level=3] [ref=e126]
+          - paragraph [ref=e127]: Add any MCP server as a pi extension. Connect to code generation, search, or custom tools.
+          - code [ref=e128]: .pi/extensions/*.ts
+          - generic [ref=e129]:
+            - strong [ref=e130]: "Pattern:"
+            - text: Register MCP tools via ExtensionAPI
+      - generic [ref=e131]:
+        - generic [ref=e132]: Available Playwright Tools
+        - code [ref=e135]: // Browser automation tools registered as:/skill:playwright_browser_navigate // Navigate to URL/skill:playwright_browser_screenshot // Take page screenshot/skill:playwright_browser_click // Click element
+    - contentinfo [ref=e136]:
+      - link "← Back to Home" [ref=e137] [cursor=pointer]:
+        - /url: /

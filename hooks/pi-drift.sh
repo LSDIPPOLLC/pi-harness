@@ -6,28 +6,10 @@ set -euo pipefail
 ISSUES=""
 PROJECT_DIR="${CLAUDE_PROJECT_DIR:-.}"
 
-# CLAUDE.md staleness check
-if [[ -f "$PROJECT_DIR/CLAUDE.md" ]]; then
-    CLAUDE_MD_AGE=$(stat -c %Y "$PROJECT_DIR/CLAUDE.md" 2>/dev/null || stat -f %m "$PROJECT_DIR/CLAUDE.md" 2>/dev/null || echo 0)
-    NOW=$(date +%s)
-    DAYS_OLD=$(( (NOW - CLAUDE_MD_AGE) / 86400 ))
-
-    if (( DAYS_OLD > 14 )); then
-        if command -v git &>/dev/null && git -C "$PROJECT_DIR" rev-parse --git-dir &>/dev/null; then
-            RECENT_COMMITS=$(git -C "$PROJECT_DIR" log --since="${DAYS_OLD} days ago" --oneline 2>/dev/null | wc -l || echo 0)
-            if (( RECENT_COMMITS > 10 )); then
-                ISSUES+="STALE: CLAUDE.md hasn't been updated in ${DAYS_OLD} days but ${RECENT_COMMITS} commits. Consider running pi-audit.\n"
-            fi
-        fi
-    fi
-fi
-
 # Memory index sync check
 MEMORY_DIR=""
 if [[ -d "$PROJECT_DIR/.pi/memory" ]]; then
     MEMORY_DIR="$PROJECT_DIR/.pi/memory"
-elif [[ -n "${CLAUDE_MEMORY_DIR:-}" && -d "$CLAUDE_MEMORY_DIR" ]]; then
-    MEMORY_DIR="$CLAUDE_MEMORY_DIR"
 fi
 
 if [[ -n "$MEMORY_DIR" && -f "$MEMORY_DIR/MEMORY.md" ]]; then
@@ -50,6 +32,27 @@ if [[ -f "$PROJECT_DIR/.pi/settings.json" ]] && command -v jq &>/dev/null; then
             ISSUES+="MISSING: Hook references '$SCRIPT' but file doesn't exist.\n"
         fi
     done <<< "$HOOK_COMMANDS"
+fi
+
+# Settings.json validation check
+if [[ -f "$PROJECT_DIR/.pi/settings.json" ]] && command -v jq &>/dev/null; then
+    if ! jq empty "$PROJECT_DIR/.pi/settings.json" 2>/dev/null; then
+        ISSUES+="INVALID: .pi/settings.json has invalid JSON.\n"
+    fi
+fi
+
+# Skill frontmatter check
+SKILLS_DIR="$PROJECT_DIR/.pi/skills"
+if [[ -d "$SKILLS_DIR" ]]; then
+    for skill_md in "$SKILLS_DIR"/*/SKILL.md; do
+        [[ -f "$skill_md" ]] || continue
+        if command -v python3 &>/dev/null; then
+            if ! python3 -c "import yaml; yaml.safe_load(open('$skill_md').read().split('---')[1])" 2>/dev/null; then
+                SKILL_NAME=$(basename $(dirname "$skill_md"))
+                ISSUES+="YAML ERROR: $SKILL_NAME/SKILL.md has invalid frontmatter.\n"
+            fi
+        fi
+    done
 fi
 
 if [[ -n "$ISSUES" ]]; then

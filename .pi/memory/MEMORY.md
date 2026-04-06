@@ -12,6 +12,7 @@
 
 ## Trust
 - [Trust Levels](trust_levels.md)
+- [Trust Calibration](trust_calibration.md)
 
 ---
 
