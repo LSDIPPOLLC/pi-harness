@@ -1,0 +1,48 @@
+{
+  "skills": [
+    ".pi/skills"
+  ],
+  "prompts": [
+    ".pi/prompts"
+  ],
+  "extensions": [
+    ".pi/extensions"
+  ],
+  "permissions": {
+    "allow": [
+      "Read",
+      "Edit",
+      "Write",
+      "Bash(git status *)",
+      "Bash(git log *)",
+      "Bash(git diff *)",
+      "Bash(git branch *)",
+      "Bash(git show *)",
+      "Bash(ls *)",
+      "Bash(cat *)",
+      "Bash(wc *)",
+      "Bash(find *)",
+      "Bash(grep *)",
+      "Bash(mkdir *)",
+      "Bash(rm *)",
+      "Bash(chmod *)",
+      "Bash(readlink *)",
+      "Bash(npm *)",
+      "Bash(npx *)",
+      "Bash(node *)"
+    ]
+  },
+  "hooks": [
+    {
+      "type": "PostToolUse",
+      "matcher": "Edit|Write",
+      "description": "Validate harness file changes",
+      "command": "bash hooks/pi-validate.sh"
+    },
+    {
+      "type": "Stop",
+      "description": "End-of-conversation harness health check",
+      "command": "bash hooks/pi-drift.sh"
+    }
+  ]
+}

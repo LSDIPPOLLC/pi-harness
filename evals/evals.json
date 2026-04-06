@@ -1,0 +1,120 @@
+{
+  "name": "pi-harness",
+  "version": "1.0.0",
+  "description": "A configuration framework for pi coding agent - pi-native adaptation",
+  "scenarios": [
+    {
+      "id": "scaffold-basic",
+      "name": "Basic Project Scaffold",
+      "description": "Generate prompts and .pi/ structure for a new project",
+      "trigger": "set up pi for this project",
+      "expected_skills": ["pi-scaffold", "pi-permissions"],
+      "assertions": [
+        {
+          "type": "file_exists",
+          "path": ".pi/prompts/project.md"
+        },
+        {
+          "type": "file_exists",
+          "path": ".pi/settings.json"
+        },
+        {
+          "type": "valid_json",
+          "path": ".pi/settings.json"
+        }
+      ]
+    },
+    {
+      "id": "audit-existing",
+      "name": "Audit Existing Harness",
+      "description": "Score and report on an existing harness configuration",
+      "trigger": "audit my harness",
+      "expected_skills": ["pi-audit"],
+      "assertions": [
+        {
+          "type": "output_contains",
+          "pattern": "Maturity.*\\d+/21"
+        },
+        {
+          "type": "output_contains",
+          "pattern": "Pillar Scores"
+        }
+      ]
+    },
+    {
+      "id": "memory-setup",
+      "name": "Memory System Setup",
+      "description": "Initialize memory structure for cross-session persistence",
+      "trigger": "set up memory",
+      "expected_skills": ["pi-memory"],
+      "assertions": [
+        {
+          "type": "file_exists",
+          "path": ".pi/memory/MEMORY.md"
+        },
+        {
+          "type": "output_contains",
+          "pattern": "Memory Index"
+        }
+      ]
+    },
+    {
+      "id": "permissions-config",
+      "name": "Permissions Configuration",
+      "description": "Configure permissions based on detected tooling",
+      "trigger": "fix permissions",
+      "expected_skills": ["pi-permissions"],
+      "assertions": [
+        {
+          "type": "file_contains",
+          "path": ".pi/settings.json",
+          "pattern": "permissions"
+        },
+        {
+          "type": "file_contains",
+          "path": ".pi/settings.json",
+          "pattern": "allow"
+        }
+      ]
+    },
+    {
+      "id": "context-optimize",
+      "name": "Context Optimization",
+      "description": "Optimize prompts for context budget",
+      "trigger": "optimize prompts",
+      "expected_skills": ["pi-context"],
+      "assertions": [
+        {
+          "type": "output_contains",
+          "pattern": "prompts|memory|context"
+        }
+      ]
+    },
+    {
+      "id": "ergonomics-tune",
+      "name": "Interaction Style Tuning",
+      "description": "Calibrate trust level and output style",
+      "trigger": "too verbose",
+      "expected_skills": ["pi-ergonomics"],
+      "assertions": [
+        {
+          "type": "output_contains",
+          "pattern": "Interaction Style|trust|verbos"
+        }
+      ]
+    },
+    {
+      "id": "loop-improve",
+      "name": "Continuous Improvement Loop",
+      "description": "Iterate through harness pillars improving weakest",
+      "trigger": "improve my harness",
+      "expected_skills": ["pi-loop", "pi-audit"],
+      "assertions": [
+        {
+          "type": "output_contains",
+          "pattern": "weakest|pillar|score"
+        }
+      ]
+    }
+  ]
+}
